@@ -1,0 +1,36 @@
+<app-navbar></app-navbar>
+<div class="content row main-bg">
+  <div class="col-sm-3"></div>
+  <div class="col-lg-6 posts-div">
+      <div *ngFor="let post of this.posts" class=" container row posts">
+        <div class="fooddiv">
+            <img alt="" src="../../assets/img/placeholder.png" class="foodimg">
+        </div>
+        <div>
+         <label class="foodname">{{post.recipeName}}</label>
+         <p>{{post.instruction}}, {{post.time}}</p>         
+        </div>
+      </div>
+  </div>
+  <div class="col-sm-3"></div>
+
+  <!-- <table class="table table-strip table-dark">
+    <tr >
+        <td>Id</td>
+        <td>Имя рецепта</td>
+        <td>Инструкция</td>
+        <td>Время</td>
+    </tr>
+
+    <tr *ngFor="let post of this.posts">
+            <td>{{post.postid}}</td>
+            <td>{{post.recipeName}}</td>
+            <td>{{post.instruction}}</td>
+            <td>{{post.time}}</td>          
+            <td><a href="javascript:void(0);" 
+                class="btn btn-success"
+                (click)="deleteUser(user)"> Понравилось </a>/ <a href="javascript:void(0);" 
+                    class="btn btn-danger" (click)="deleteUser(user)"> Не понравилось </a></td>
+        </tr>
+</table> -->
+</div>
