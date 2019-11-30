@@ -2,7 +2,7 @@
 .main-bg{
     margin: 0;
     height: 100%;
-    background: url(../../assets/img/1.png);
+    background: url(../../../assets/img/1.png);
     background-size: 50%;
     -webkit-filter: blur(0px);
 }
@@ -54,8 +54,9 @@
 .foodname{
     font-family: 'Slabo 27px', serif;
     font-family: 'Neucha', cursive;
-    font-size: 22pt;
-    margin-top: 30px;
+    font-size: 25pt;
+    margin: 30px;
+    margin-top: 40px;
 }
 .foodimg {
     width: 180px;

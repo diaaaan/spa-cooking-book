@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Post } from "../Model/post";
 import { ApiResponse } from '../Model/api-response';
+import { User } from '../Model/user';
 
 
 @Injectable({
@@ -13,6 +14,10 @@ export class ServicesService {
   constructor(private http: HttpClient) { }
 
   baseUrl = 'http://localhost/RecipeDb/';
+
+  createUser(user: User): Observable<ApiResponse> {
+    return this.http.post<ApiResponse>(this.baseUrl + '/register.php', user);
+  }
 
 
   createPost(post: Post): Observable<ApiResponse> {
