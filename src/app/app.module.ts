@@ -10,7 +10,6 @@ import { ContentComponent } from './components/content/content.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegComponent } from './components/reg/reg.component';
 import { AddComponent } from './posts/add/add.component';
-import { ViewComponent } from './posts/view/view.component';
 import { EditComponent } from './posts/edit/edit.component';
 
 @NgModule({
@@ -21,7 +20,6 @@ import { EditComponent } from './posts/edit/edit.component';
     LoginComponent,
     RegComponent,
     AddComponent,
-    ViewComponent,
     EditComponent
   ],
   imports: [

@@ -11,7 +11,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegComponent },
   { path: 'content', component: ContentComponent },
-  { path: 'add-post', component: AddComponent }
+  { path: 'add-post', component: AddComponent },
+  { path: '**', redirectTo: 'content', pathMatch: 'full' }
 
 ];
 

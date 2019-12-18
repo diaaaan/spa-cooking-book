@@ -19,6 +19,9 @@ export class ServicesService {
     return this.http.post<ApiResponse>(this.baseUrl + '/register.php', user);
   }
 
+  login(loginData): Observable<ApiResponse> {
+    return this.http.post<ApiResponse>(this.baseUrl + '/login.php', loginData);
+  }
 
   createPost(post: Post): Observable<ApiResponse> {
     return this.http.post<ApiResponse>(this.baseUrl + '/insert.php', post);
@@ -32,4 +35,8 @@ export class ServicesService {
     return this.http.get<ApiResponse>(this.baseUrl + '/list.php');
   }
   
+  deletePost(id: number): Observable<ApiResponse> {
+    return this.http.get<ApiResponse>(this.baseUrl + '/delete.php?id=' + id);
+  }
+
 }

@@ -2,13 +2,37 @@
 <div class="content row main-bg">
   <div class="col-sm-3"></div>
   <div class="col-lg-6 posts-div">
+      <br/>
+      <div class="about">В данном разделе собраны самые лучшие рецепты от наших пользователей!</div>
+      <hr/>
+      <br/>
       <div *ngFor="let post of this.posts" class=" container row posts">
         <div class="fooddiv">
+          <a href="" (click)="edit(post)">
             <img alt="" src="../../assets/img/placeholder.png" class="foodimg">
+          </a>
+          <a href="javascript:void(0);" 
+          (click)="deletePost(post)">Delete</a>
         </div>
-        <div>
-         <label class="foodname">{{post.recipeName}}</label>
-         <p>{{post.instruction}}, {{post.time}}</p>         
+       
+        <div>  
+            
+                  
+         <label class="foodname">{{post.recipeName}}
+            <a href="" class="edit_link">
+                <img src="/assets/img/edit.svg" width="20" height="20" alt="">
+               </a>
+         </label>
+         <div >
+           
+              </div>
+        
+         <div class="about_recipe">
+          <p class="instr_label"> Инструкция: </p>
+          <div class="instruction">{{post.instruction}}</div>   
+          <p class="time_label"> Время приготовления:
+          {{post.time}}  мин.   </p>
+        </div> 
         </div>
       </div>
   </div>

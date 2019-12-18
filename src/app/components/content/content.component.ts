@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ServicesService } from '../../services/services.service';
 import { ApiResponse } from '../../Model/api-response';
 import { Router } from '@angular/router';
+import { Post } from 'src/app/Model/post';
 
 
 @Component({
@@ -12,7 +13,8 @@ import { Router } from '@angular/router';
 export class ContentComponent implements OnInit {
   posts: any;
 
-  constructor(private apiService:  ServicesService) { }
+  constructor(  private apiService:  ServicesService,
+                private router: Router  ) { }
 
   ngOnInit() {
     this.apiService.getPosts()
@@ -21,5 +23,14 @@ export class ContentComponent implements OnInit {
         console.log(this.posts);
       });
   }
+
+  deletePost(post: Post): void {
+    this.apiService.deletePost(post.postid)
+      .subscribe( data => {
+        this.posts = this.posts.filter(u => u!==post);
+      });
+  }
+
+
 
 }
