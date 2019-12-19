@@ -123,3 +123,7 @@
 .edit_link {
   margin-inline-start: auto;
 }
+
+.modal.show {
+  display: block;
+}

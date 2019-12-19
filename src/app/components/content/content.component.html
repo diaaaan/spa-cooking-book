@@ -13,6 +13,10 @@
           </a>
           <a href="javascript:void(0);" 
           (click)="deletePost(post)">Delete</a>
+            <!-- Button trigger modal -->
+          <button type="button" (click)="showModal=true" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Удалить
+          </button>
         </div>
        
         <div>  
@@ -38,23 +42,27 @@
   </div>
   <div class="col-sm-3"></div>
 
-  <!-- <table class="table table-strip table-dark">
-    <tr >
-        <td>Id</td>
-        <td>Имя рецепта</td>
-        <td>Инструкция</td>
-        <td>Время</td>
-    </tr>
 
-    <tr *ngFor="let post of this.posts">
-            <td>{{post.postid}}</td>
-            <td>{{post.recipeName}}</td>
-            <td>{{post.instruction}}</td>
-            <td>{{post.time}}</td>          
-            <td><a href="javascript:void(0);" 
-                class="btn btn-success"
-                (click)="deleteUser(user)"> Понравилось </a>/ <a href="javascript:void(0);" 
-                    class="btn btn-danger" (click)="deleteUser(user)"> Не понравилось </a></td>
-        </tr>
-</table> -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" 
+role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" [ngClass]="{'show':showModal}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" (click)="showModal=false" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Вы действительно хотите удалить этот пост?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+        <button type="button" class="btn btn-danger">Удалить</button>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
