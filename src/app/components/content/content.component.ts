@@ -31,6 +31,10 @@ export class ContentComponent implements OnInit {
       });
   }
 
+  showPost(post:Post):void {
+    this.router.navigate(['info/' + post.postid]);
+  }
+
 
 
 }

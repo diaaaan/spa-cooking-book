@@ -1,0 +1,8 @@
+.custom-form {
+    background-color: transparent;
+    border: none;
+}
+.custom-form :focus {
+    background-color: blue;
+    border: none;
+}

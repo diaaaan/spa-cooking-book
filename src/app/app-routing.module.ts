@@ -4,6 +4,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegComponent } from './components/reg/reg.component';
 import { ContentComponent } from './components/content/content.component';
 import { AddComponent } from './posts/add/add.component';
+import { InfoComponent } from './posts/info/info.component';
 
 
 
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'register', component: RegComponent },
   { path: 'content', component: ContentComponent },
   { path: 'add-post', component: AddComponent },
+  { path: 'info/:postid', component: InfoComponent },
   { path: '**', redirectTo: 'content', pathMatch: 'full' }
 
 ];

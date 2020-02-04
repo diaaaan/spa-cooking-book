@@ -11,6 +11,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegComponent } from './components/reg/reg.component';
 import { AddComponent } from './posts/add/add.component';
 import { EditComponent } from './posts/edit/edit.component';
+import { InfoComponent } from './posts/info/info.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { EditComponent } from './posts/edit/edit.component';
     LoginComponent,
     RegComponent,
     AddComponent,
-    EditComponent
+    EditComponent,
+    InfoComponent
   ],
   imports: [
     BrowserModule,

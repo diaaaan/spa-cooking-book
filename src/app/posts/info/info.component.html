@@ -1,0 +1,25 @@
+<div class="col-md-6 user-container">
+    <h2 class="text-center">Рецепт!</h2>
+    <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+
+        <div class="form-group">  
+            <label for="recipeName">Название:</label>
+            <input type="text" formControlName="recipeName" placeholder="recipeName" readonly
+            name="recipeName" class="form-control custom-form" id="recipeName">
+        </div>
+
+        <div class="form-group">
+            <label for="instruction">Инструкция:</label>
+            <textarea type="instruction" formControlName="instruction" readonly
+            placeholder="instruction" name="instruction" class="form-control about custom-form" id="instruction"> </textarea>
+        </div>
+
+        <div class="form-group">
+                <label for="time">Время для приготовления:</label>
+                <input type="number" formControlName="time" readonly
+                placeholder="time" name="time" class="form-control custom-form" id="time">
+        </div>
+
+       
+    </form>
+</div>

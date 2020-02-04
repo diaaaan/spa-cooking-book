@@ -32,15 +32,22 @@
               </div>
         
          <div class="about_recipe">
-          <p class="instr_label"> Инструкция: </p>
-          <div class="instruction">{{post.instruction}}</div>   
+          <!-- <p class="instr_label"> Инструкция: </p>
+          <div class="instruction">{{post.instruction}}</div>    -->
+          <p class="instr_label"> Автор: </p>
+          <p class="instr_label"> Количество ингридиентов: </p>
+          
           <p class="time_label"> Время приготовления:
           {{post.time}}  мин.   </p>
+          <button type="button" (click)="showPost(post)" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Read more
+          </button>
         </div> 
         </div>
       </div>
   </div>
   <div class="col-sm-3"></div>
+
 
 
 
@@ -60,7 +67,7 @@ role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" [ngClass]="
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
-        <button type="button" class="btn btn-danger">Удалить</button>
+        <button type="button" class="btn btn-danger" (click)="deletePost(post)">Удалить</button>
       </div>
     </div>
   </div>
