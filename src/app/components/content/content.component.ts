@@ -27,6 +27,8 @@ export class ContentComponent implements OnInit {
   deletePost(post: Post): void {
     this.apiService.deletePost(post.postid)
       .subscribe( data => {
+        
+        console.log(this);
         this.posts = this.posts.filter(u => u!==post);
       });
   }

@@ -1,8 +1,16 @@
+
 .custom-form {
     background-color: transparent;
     border: none;
+    outline: none;  
 }
+
 .custom-form :focus {
     background-color: blue;
     border: none;
+}
+/* Remove outline on the forms and links */
+:active, :hover, :focus {
+    outline: 0;
+    outline-offset: 0;
 }
