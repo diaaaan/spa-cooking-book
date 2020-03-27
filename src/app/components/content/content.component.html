@@ -1,7 +1,8 @@
 <app-navbar></app-navbar>
-<div class="content row main-bg">
-  <div class="col-sm-3"></div>
+<div class="content row main-bg p-0">
+  <!-- <div class="col-sm-3"></div>
   <div class="col-lg-6 posts-div">
+      <div class="bg-image">В данном разделе собраны самые лучшие рецепты от наших пользователей!</div>
       <br/>
       <div class="about">В данном разделе собраны самые лучшие рецепты от наших пользователей!</div>
       <hr/>
@@ -13,7 +14,7 @@
           </a>
           <a href="javascript:void(0);" 
           (click)="deletePost(post)">Delete</a>
-            <!-- Button trigger modal -->
+            Button trigger modal
           <button type="button" (click)="showModal=true" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
             Удалить
           </button>
@@ -32,8 +33,8 @@
               </div>
         
          <div class="about_recipe">
-          <!-- <p class="instr_label"> Инструкция: </p>
-          <div class="instruction">{{post.instruction}}</div>    -->
+          <p class="instr_label"> Инструкция: </p>
+          <div class="instruction">{{post.instruction}}</div>   
           <p class="instr_label"> Автор: </p>
           <p class="instr_label"> Количество ингридиентов: </p>
           
@@ -46,9 +47,80 @@
         </div>
       </div>
   </div>
-  <div class="col-sm-3"></div>
+  <div class="col-sm-3"></div> -->
 
 
+
+  <div class="first-div row">
+    <div class="col-6 main-text">
+      <div class="heading">
+        Рецепты вашего счастья
+      </div>
+      <div class="heading-text">
+        Ваши любимые рецепты из детства у вас на ладони.
+        <p>Принесите кусочки домашнего уюта в  цифровой мир!</p>
+        <div>
+          <button class="start-button">
+            Присоединиться!
+          </button>
+        </div>
+        
+      </div>
+      
+    </div>
+    <div class="col-4 main-image">
+      <img src="../../../assets/img/main_image.svg" alt="image" class="main_image">
+    </div>
+  </div>
+  <div class="second-div">
+    <div class="col-lg-6 posts-div">
+      <div class="bg-image">В данном разделе собраны самые лучшие рецепты от наших пользователей!</div>
+      <br/>
+      <div class="about">В данном разделе собраны самые лучшие рецепты от наших пользователей!</div>
+      <hr/>
+      <br/>
+      <div *ngFor="let post of this.posts" class=" container row posts">
+        <div class="fooddiv">
+          <a href="" (click)="edit(post)">
+            <img alt="" src="../../assets/img/placeholder.png" class="foodimg">
+          </a>
+          <a href="javascript:void(0);" 
+          (click)="deletePost(post)">Delete</a>
+            Button trigger modal
+          <button type="button" (click)="showModal=true" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Удалить
+          </button>
+        </div>
+       
+        <div>  
+            
+                  
+         <label class="foodname">{{post.recipeName}}
+            <a href="" class="edit_link">
+                <img src="/assets/img/edit.svg" width="20" height="20" alt="">
+               </a>
+         </label>
+         <div >
+           
+              </div>
+        
+         <div class="about_recipe">
+          <p class="instr_label"> Инструкция: </p>
+          <div class="instruction">{{post.instruction}}</div>   
+          <p class="instr_label"> Автор: </p>
+          <p class="instr_label"> Количество ингридиентов: </p>
+          
+          <p class="time_label"> Время приготовления:
+          {{post.time}}  мин.   </p>
+          <button type="button" (click)="showPost(post)" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Read more
+          </button>
+        </div> 
+        </div>
+      </div>
+  </div>
+     
+  </div>
 
 
 <!-- Modal -->
