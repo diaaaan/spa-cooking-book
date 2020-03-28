@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { first } from "rxjs/operators";
 import { ServicesService } from '../../../services/services.service';
 import { Router } from '@angular/router';
 
@@ -10,29 +11,41 @@ import { Router } from '@angular/router';
 })
 export class RegComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder,
+  angForm: FormGroup;
+
+
+  constructor(private fb: FormBuilder,
               private apiService: ServicesService,
               private router: Router
   
-  ) { }
+  ) { 
+      this.angForm = this.fb.group({
+      email: ['', [Validators.required,
+                  Validators.minLength(1), 
+                  Validators.email]],
+      password: ['', Validators.required],
+      name: ['', Validators.required],
+      mobile: ['', Validators.required]
+      });
+  }
 
-  regForm: FormGroup;
 
-  ngOnInit() {
-    this.regForm = this.formBuilder.group ({
-      id: [],
-      email: ['', Validators.required],
-      username: ['', Validators.required],
-      password: ['', Validators.required]
+  ngOnInit() {}
+
+  postdata(angForm1) {
+    this.apiService.userregistration(angForm1.value.name,angForm1.value.email,angForm1.value.password)
+      .pipe(first())
+        .subscribe(
+          data => {
+            console.log("Succ");
+            this.router.navigate(['login']);
+    },
+    error => {
     });
   }
 
-  onReg(){
-    console.log(this.regForm.value);
-    this.apiService.createUser(this.regForm.value)
-      .subscribe( data => {
-        this.router.navigate(['content']);
-      });
-  }
+  get email() { return this.angForm.get('email'); }
+  get password() { return this.angForm.get('password'); }
+  get name() { return this.angForm.get('name'); }
 
 }

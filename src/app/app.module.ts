@@ -13,6 +13,7 @@ import { AddComponent } from './posts/add/add.component';
 import { EditComponent } from './posts/edit/edit.component';
 import { InfoComponent } from './posts/info/info.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

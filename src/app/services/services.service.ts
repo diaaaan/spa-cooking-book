@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Post } from "../Model/post";
 import { ApiResponse } from '../Model/api-response';
-import { User } from '../Model/user';
+import { map } from "rxjs/operators";
+import { Users } from '../Model/users';
 
 
 @Injectable({
@@ -11,17 +12,63 @@ import { User } from '../Model/user';
 })
 export class ServicesService {
 
+  redirectUrl: string;
+
+  
+
+  @Output() getLoggedInName: EventEmitter<any> = new EventEmitter();
+
   constructor(private http: HttpClient) { }
 
   baseUrl = 'http://localhost/RecipeDb/';
 
-  createUser(user: User): Observable<ApiResponse> {
-    return this.http.post<ApiResponse>(this.baseUrl + '/register.php', user);
+  public userlogin(username, password) {
+    alert(username)
+    return this.http.post<any>(this.baseUrl + '/login.php', { username, password })
+      .pipe(map(Users => {
+        this.setToken(Users[0].name);
+        this.getLoggedInName.emit(true);
+        return Users;
+      }));
   }
 
-  login(loginData): Observable<ApiResponse> {
-    return this.http.post<ApiResponse>(this.baseUrl + '/login.php', loginData);
+  public userregistration(name, email, pwd) {
+    return this.http.post<any>(this.baseUrl + '/register.php', { name, email, pwd })
+      .pipe(map(Users => {
+        return Users;
+      }));
   }
+
+  setToken(token: string) {
+    localStorage.setItem('token', token);
+  }
+
+  getToken() {
+    return localStorage.getItem('token');
+  }
+
+  deleteToken() {
+    localStorage.removeItem('token');
+  }
+
+  isLoggedIn() {
+    const usertoken = this.getToken();
+    if (usertoken != null) {
+      return true
+    }
+    return false;
+  }
+
+
+
+
+  // createUser(user: User): Observable<ApiResponse> {
+  //   return this.http.post<ApiResponse>(this.baseUrl + '/register.php', user);
+  // }
+
+  // login(loginData): Observable<ApiResponse> {
+  //   return this.http.post<ApiResponse>(this.baseUrl + '/login.php', loginData);
+  // }
 
   createPost(post: Post): Observable<ApiResponse> {
     return this.http.post<ApiResponse>(this.baseUrl + '/insert.php', post);

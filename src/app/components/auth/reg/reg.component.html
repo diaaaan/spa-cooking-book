@@ -1,56 +1,26 @@
-<app-navbar></app-navbar>
-<div class="limiter">
-    <div class="container-login100">
-        <div class="wrap-login100">
-            <form class="login100-form validate-form" method="POST" [formGroup]="regForm" (onSubmit)="onSubmit()">
-                <span class="login100-form-title">
-                   РЕГИСТРАЦИЯ
-                </span>
-
-                <div class="wrap-input100 validate-input" required>
-                        <input class="input100" type="text" name="username" 
-                        formControlName="username" placeholder="Логин" id="username"> 
-                        <span class="focus-input100"></span>
-                        <span class="symbol-input100">
-                            <i class="fa fa-envelope" aria-hidden="true"></i>
-                        </span>
-                </div>
-
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text" name="email"
-                    formControlName="email" id="email"
-                    placeholder="Почта">
-                    <span class="focus-input100"></span>
-                    <span class="symbol-input100">
-                        <i class="fa fa-envelope" aria-hidden="true"></i>
-                    </span>
-                </div>
-
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" type="password" 
-                    formControlName="password" id="password"
-                    name="password" placeholder="Пароль">
-                    <span class="focus-input100"></span>
-                    <span class="symbol-input100">
-                        <i class="fa fa-lock" aria-hidden="true"></i>
-                    </span>
-                </div>
-                
-                <div class="container-login100-form-btn">
-                    <button class="login-button" (click)="onReg()">
-                            <!-- login100-form-btn -->
-                        Давайте готовить!
-                    </button>
-                </div>
-                
-
-                <div class="text-center p-t-136">
-                    <a class="txt3" routerLink="/login">
-                        Already got an Account?
-                        <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-                    </a>
-                </div>
-            </form>
-        </div>
-    </div>
+<h2 class="text-center">Registration</h2>
+<div class="row">
+<div class="col-md-3">
+</div>
+<div class="col-md-6 col-md-offset-3">
+<div class="jumbotron">
+<form [formGroup]="angForm" (ngSubmit)="postdata(angForm)" autocomplete="off" >
+<div class="form-group">
+<label for="name">Name</label>
+<input type="text" name="name" formControlName="name" autocomplete="off" class="form-control input-sm" placeholder="Name">
+</div>
+<div class="form-group">
+<label for="email">Email</label>
+<input type="email" name="email" formControlName="email" autocomplete="off" class="form-control input-sm" placeholder="Email">
+</div>
+<div class="form-group">
+<label for="Password">Password</label>
+<input type="password" name="Password" formControlName="password" autocomplete="off" class="form-control input-sm" placeholder="Password">
+</div>
+<button type="submit" class="btn btn-success" >Register</button>
+</form>
+</div>
+</div>
+<div class="col-md-3">
+</div>
 </div>

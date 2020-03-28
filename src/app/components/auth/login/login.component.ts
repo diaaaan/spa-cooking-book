@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { first } from "rxjs/operators";
 import { Router } from '@angular/router';
 import { ServicesService } from '../../../services/services.service';
 
@@ -10,42 +11,33 @@ import { ServicesService } from '../../../services/services.service';
 })
 export class LoginComponent implements OnInit {
 
-  loginForm: FormGroup;
-  invalidLogin: boolean = false;
-  message: any;
+  angForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(private fb: FormBuilder,
               private router: Router,
-              private apiService: ServicesService) { }
+              private apiService: ServicesService) {
+                this.angForm = this.fb.group({
+                  email: ['', [Validators.required, 
+                               Validators.minLength(1),
+                               Validators.email]],
+                  password: ['', Validators.required]
+                });
+               }
 
-  ngOnInit() {
-      this.loginForm = this.formBuilder.group({
-      username: ['', Validators.compose([Validators.required])],
-      password: ['', Validators. required]
-    });
-  }
+  ngOnInit() { }
 
-  onSubmit() {
-    if (this.loginForm.invalid) {
-      return;
-    }
-
-    const loginData = {
-      username: this.loginForm.controls.username.value,
-      password: this.loginForm.controls.password.value
-    };
-    this.apiService.login(loginData)
-    .subscribe((data: any) => {
-      this.message = data.message;
-
-      if (data.token) {
-        // window.localStorage.setItem('token', data.token);
-        this.router.navigate(['content']);
-
-      } else {
-        this.invalidLogin = true;
-        // alert(data.message);
-      }
-    });
-  }
-  }
+  postdata(angForm1) {
+    this.apiService.userlogin(angForm1.value.email,angForm1.value.password)
+      .pipe(first())
+        .subscribe(
+          data => {
+            const redirect = this.apiService.redirectUrl ? this.apiService.redirectUrl : '/content';
+            this.router.navigate([redirect]);
+          },
+          error => {
+            alert("Неправильные имя пользователя или пароль!")
+            });
+          }
+    get email() { return this.angForm.get('email'); }
+    get password() { return this.angForm.get('password'); }
+}
