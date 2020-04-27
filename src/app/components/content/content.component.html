@@ -49,99 +49,67 @@
   </div>
   <div class="col-sm-3"></div> -->
 
-
-
-  <div class="first-div row">
-    <div class="col-6 main-text">
-      <div class="heading">
-        Рецепты вашего счастья
-      </div>
-      <div class="heading-text">
-        Ваши любимые рецепты из детства у вас на ладони.
-        <p>Принесите кусочки домашнего уюта в  цифровой мир!</p>
-        <div>
-          <button class="start-button">
-            Присоединиться!
-          </button>
+  <div *ngIf="!user">
+    <div class="first-div row">
+      <div class="col-6 main-text">
+        <div class="heading">
+          Рецепты вашего счастья
         </div>
-        
+        <div class="heading-text">
+          Ваши любимые рецепты из детства у вас на ладони.
+          <p>Принесите кусочки домашнего уюта в  цифровой мир!</p>
+          <div>
+            <button class="start-button" (click)="router.navigate(['/register']);">
+              Присоединиться!
+            </button>
+          </div>          
+        </div>        
+      </div>
+      <div class="col-4 main-image">
+        <img src="../../../assets/img/main_image.svg" alt="image" class="main_image">
+      </div>
+    </div>
+  </div>
+
+    <div class="second-div container">
+  
+      <div class="col-lg-6 top-of-day">
+        <div class="top-of-day-header-text">Райское наслаждение</div>
+        <p class="top-of-day-text">Самые вкусные рецепты по мнению наших пользователей</p>
       </div>
       
-    </div>
-    <div class="col-4 main-image">
-      <img src="../../../assets/img/main_image.svg" alt="image" class="main_image">
-    </div>
-  </div>
-  <div class="second-div">
-    <div class="col-lg-6 posts-div">
-      <div class="bg-image">В данном разделе собраны самые лучшие рецепты от наших пользователей!</div>
-      <br/>
-      <div class="about">В данном разделе собраны самые лучшие рецепты от наших пользователей!</div>
-      <hr/>
-      <br/>
-      <div *ngFor="let post of this.posts" class=" container row posts">
-        <div class="fooddiv">
-          <a href="" (click)="edit(post)">
-            <img alt="" src="../../assets/img/placeholder.png" class="foodimg">
-          </a>
-          <a href="javascript:void(0);" 
-          (click)="deletePost(post)">Delete</a>
-            Button trigger modal
-          <button type="button" (click)="showModal=true" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            Удалить
-          </button>
-        </div>
-       
-        <div>  
-            
-                  
-         <label class="foodname">{{post.recipeName}}
-            <a href="" class="edit_link">
-                <img src="/assets/img/edit.svg" width="20" height="20" alt="">
-               </a>
-         </label>
-         <div >
-           
-              </div>
+      <div class="all-posts row">
+        <div *ngFor="let post of this.posts" class="container row post-block p-0" (click)="showPost(post)" >
+
+          <div class="food-image-block">
+            <!-- <a href="" (click)="edit(post)">
+            </a>
+            <a href="javascript:void(0);"  (click)="deletePost(post)">Delete</a> -->
+            <img  src="../../assets/img/placeholder.png" class="food-image">
+            <!-- <button type="button" (click)="showModal=true" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+              Удалить
+            </button> -->
+          </div>
         
-         <div class="about_recipe">
-          <p class="instr_label"> Инструкция: </p>
-          <div class="instruction">{{post.instruction}}</div>   
-          <p class="instr_label"> Автор: </p>
-          <p class="instr_label"> Количество ингридиентов: </p>
-          
-          <p class="time_label"> Время приготовления:
-          {{post.time}}  мин.   </p>
-          <button type="button" (click)="showPost(post)" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            Read more
-          </button>
-        </div> 
+          <div class="food-info-block">          
+                    
+              <label class="food-name">{{post.recipeName}}</label>
+              <div class="food-time-block">
+                <img src="">
+                <label class="food-time-label">{{post.time}}</label>
+              </div>
+
+           
+          </div>
         </div>
+
       </div>
-  </div>
-     
-  </div>
+  
 
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" 
-role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" [ngClass]="{'show':showModal}">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" (click)="showModal=false" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+
+  
+       
+    
       </div>
-      <div class="modal-body">
-        Вы действительно хотите удалить этот пост?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
-        <button type="button" class="btn btn-danger" (click)="deletePost(post)">Удалить</button>
-      </div>
-    </div>
-  </div>
-</div>
 </div>

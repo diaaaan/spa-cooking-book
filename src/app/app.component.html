@@ -16,21 +16,23 @@
                 </b>
             </li>
             <li class="nav-item">
-                <a class="nav-link" *ngIf="loginbtn" routerLink="login" routerLinkActive="active">Login</a>
+                <a class="nav-link" *ngIf="loginbtn" routerLink="login" routerLinkActive="active">Вход</a>
             </li>
+            <div *ngIf="!user">
             <li class="nav-item">
                 <button type="button" *ngIf="logoutbtn" class="btn btn-block" (click)="logout()">logout</button>
             </li>
             <li class="nav-item">
-                <a class="nav-link" *ngIf="loginbtn" routerLink="register" routerLinkActive="active">Registration</a>
+                <a class="nav-link" *ngIf="loginbtn" routerLink="register" routerLinkActive="active">Регистрация</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" *ngIf="logoutbtn" routerLink="content" routerLinkActive="active">Dashboard</a>
             </li>
+        </div>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <form class="form-inline my-2 my-lg-0" *ngIf="user">
+                <img src="{{user.photoUrl}}"  width="60" height="60" class="user-profile">
+                <a class="nav-link custom-profile-link" routerLink="/profile">{{user.name}}<span class="sr-only">(current)</span></a>
         </form>
     </div>
 </nav>

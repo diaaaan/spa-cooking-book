@@ -68,19 +68,23 @@
         <div class="row">
             <div class="col">
                 <div class="jumbotron custom-form">
+                    <label for="text" class="google-label">
+                        Быстрый доступ
+                    </label>
+                    <button (click)="signIn('Google');" class="btn btn-primary btn-block" >Войти через Google</button>
+                    <br>
+
                     <form [formGroup]="angForm" (ngSubmit)="postdata(angForm)" autocomplete="off" >
-                        <button type="submit" class="btn btn-primary btn-block" >Войти через Google</button>
 
                         <div class="form-group">
-                            <label for="email">Email</label>
                             <input type="email" name="email" formControlName="email" autocomplete="off" class="form-control input-sm" placeholder="Email">
                         </div>
                         <div class="form-group">
-                            <label for="Password">Password</label>
                             <input type="password" name="Password" formControlName="password" autocomplete="off" class="form-control input-sm" placeholder="Password">
                         </div>
-                    <button type="submit" class="btn btn-success" >Login</button>
+                    <button type="submit" class="btn btn-success" >Войти</button>
                     </form>
+                    <button (click)="signOut();">Out</button>
                 </div>
             </div>
         </div> 

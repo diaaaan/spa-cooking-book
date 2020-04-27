@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { first } from "rxjs/operators";
 import { Router } from '@angular/router';
 import { ServicesService } from '../../../services/services.service';
+import { AuthService, GoogleLoginProvider } from "angularx-social-login";
+
 
 @Component({
   selector: 'app-login',
@@ -11,11 +13,14 @@ import { ServicesService } from '../../../services/services.service';
 })
 export class LoginComponent implements OnInit {
 
+  user: any;
+
   angForm: FormGroup;
 
   constructor(private fb: FormBuilder,
               private router: Router,
-              private apiService: ServicesService) {
+              private apiService: ServicesService,
+              private _socioAuthServ:AuthService) {
                 this.angForm = this.fb.group({
                   email: ['', [Validators.required, 
                                Validators.minLength(1),
@@ -23,6 +28,25 @@ export class LoginComponent implements OnInit {
                   password: ['', Validators.required]
                 });
                }
+
+  signIn(platfom: string): void 
+    {
+      platfom = GoogleLoginProvider.PROVIDER_ID;
+             
+        this._socioAuthServ.signIn(platfom).then((response)=>{
+          console.log(platfom  + "logged in user data is=", response);
+             
+          this.user = response;
+          this.router.navigate(['/content']);
+        }
+      );
+    }
+
+  signOut(): void {
+      this._socioAuthServ.signOut();
+  
+      console.log("User signed out");
+  }
 
   ngOnInit() { }
 

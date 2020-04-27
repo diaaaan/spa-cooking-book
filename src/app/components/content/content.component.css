@@ -3,126 +3,12 @@
 .main-bg{
     margin: 0;
     height: 100%;
+    /* background: url(../../../assets/img/bg_new.svg)no-repeat center center; */
     /* background: url(../../../assets/img/1.png); */
     /* background-size: 50%;
     -webkit-filter: blur(0px); */
 }
-.posts {
-    margin: 0 10px 30px 0px;
-}
-.posts-div{
-    background-color: white;
-    /* box-shadow: 0 0 10px rgba(0,0,0,0.5); */
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    margin: 26px auto 0;
-    min-height: 300px;
-    padding: 24px;
-    position: relative;
-    width: 80%;
-}
-.posts-div,
-.posts-div:before,
-.posts-div:after {
-  /* Styles to distinguish sheets from one another */
-  box-shadow: 1px 1px 1px rgba(0,0,0,0.25);
-  border: 1px solid #bbb;
-}
 
-.posts-div:before,
-.posts-div:after {
-  content: "";
-  position: absolute;
-  height: 95%;
-  width: 99%;
-  background-color: #eee;
-}
-
-.posts-div:before {
-  right: 15px;
-  top: 0;
-  transform: rotate(-1deg);
-  z-index: -1;
-}
-
-.posts-div:after {
-  top: 5px;
-  right: -5px;
-  transform: rotate(1deg);
-  z-index: -2;
-}
-
-.foodname{
-    font-family: 'Slabo 27px', serif;
-    font-family: 'Neucha', cursive;
-    font-size: 25pt;
-    margin-left: 30px;
-    margin-top: 40px;
-    margin-bottom: 0;
-}
-.foodimg {
-    width: 180px;
-    height: 180px;
-}
-.fooddiv {
-    width: 200px;
-    height: 200px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    background-size: cover;
-	background-clip: content-box;
-    box-sizing: border-box;
-    position: relative;
-    top: 30px; 
-}
-
-.fooddiv:after {
-    content: "";
-    display: block;
-    position: absolute;
-    border: 50px solid transparent;
-    border-bottom: 50px solid #fefefe;
-    bottom: -60px;
-    right: -65px;
-    box-shadow: 0px 7px 6px -9px black;
-    transform: rotate(135deg);
-  }
-  
-.fooddiv:before {
-    content: "";
-    display: block;
-    position: absolute;
-    border: 50px solid transparent;
-    border-top: 50px solid #fefefe;
-    top: -60px;
-    left: -65px;
-    box-shadow: 0px -7px 6px -9px black;
-    transform: rotate(135deg);
-}
-
-.instruction {
-  margin-left: 20px;
-}
-
-.instr_label {
-  margin-left: 20px;
-  font-weight: bold;
-  margin-bottom: 0;
-}
-.time_label {
-  margin-left: 20px;
-  margin-top: 40px;
-}
-
-.about_recipe {
-  margin-left: 30px;
-}
-
-.about {
-  text-align: center;
-}
-.edit_link {
-  margin-inline-start: auto;
-}
 
 .modal.show {
   display: block;
@@ -140,12 +26,7 @@
         -o-background-size: cover;
         background-size: cover;
 }
-.second-div {
-  /* margin-top: 300px; */
-  width: 100%;
-  height: 200px;
-  background-color: #fff;
-}
+
 .heading {
   margin-top: 30%;
   font-family: 'Nunito', sans-serif;  
@@ -163,7 +44,7 @@
   padding-left: 10%;
   /* text-align: center; */
 }
-  .main-image{
+.main-image{
   margin-top: 5%;
   margin-left: 3%;
   width: 550px;
@@ -176,4 +57,31 @@
   border-width: 0;
   font-size: 80%;
   color: white;
+}
+
+.food-image {
+  width: 220px;
+  height: 225px;
+}
+
+.top-of-day{ 
+  margin: 5% 0 3% 0;
+}
+
+.top-of-day-header-text { 
+  font-family: 'Nunito', sans-serif; 
+  font-size: 150%;
+}
+
+.all-posts {
+  margin: 3%;
+}
+
+.post-block {
+  width: 220px;
+  height: 290px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px gray;
+  cursor: pointer;
 }

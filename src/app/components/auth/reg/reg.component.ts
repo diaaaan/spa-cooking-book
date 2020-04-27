@@ -3,6 +3,8 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { first } from "rxjs/operators";
 import { ServicesService } from '../../../services/services.service';
 import { Router } from '@angular/router';
+import { AuthService, GoogleLoginProvider } from "angularx-social-login";
+
 
 @Component({
   selector: 'app-reg',
@@ -11,12 +13,15 @@ import { Router } from '@angular/router';
 })
 export class RegComponent implements OnInit {
 
+  user: any;
+
   angForm: FormGroup;
 
 
   constructor(private fb: FormBuilder,
               private apiService: ServicesService,
-              private router: Router
+              private router: Router,
+              private _socioAuthServ:AuthService
   
   ) { 
       this.angForm = this.fb.group({
@@ -28,6 +33,19 @@ export class RegComponent implements OnInit {
       mobile: ['', Validators.required]
       });
   }
+
+  signIn(platfom: string): void 
+    {
+      platfom = GoogleLoginProvider.PROVIDER_ID;
+             
+        this._socioAuthServ.signIn(platfom).then((response)=>{
+          console.log(platfom  + "logged in user data is=", response);
+             
+          this.user = response;
+          this.router.navigate(['/content']);
+        }
+      );
+    }
 
 
   ngOnInit() {}

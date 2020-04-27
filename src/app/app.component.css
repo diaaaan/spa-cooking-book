@@ -1,3 +1,10 @@
 .custom-navbar {
     background-color: #fad76e;
 }
+.user-profile {
+    border-radius: 50%;
+}
+.custom-profile-link {
+    font-weight: 700;
+    color: black;
+}
