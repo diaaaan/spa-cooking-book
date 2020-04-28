@@ -15,20 +15,20 @@
                   <a class="nav-link" href="#">Cooking book <span class="sr-only">(current)</span></a>
                 </b>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" *ngIf="loginbtn" routerLink="login" routerLinkActive="active">Вход</a>
-            </li>
             <div *ngIf="!user">
-            <li class="nav-item">
-                <button type="button" *ngIf="logoutbtn" class="btn btn-block" (click)="logout()">logout</button>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" *ngIf="loginbtn" routerLink="register" routerLinkActive="active">Регистрация</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" *ngIf="logoutbtn" routerLink="content" routerLinkActive="active">Dashboard</a>
-            </li>
-        </div>
+                <li class="nav-item">
+                    <a class="nav-link" *ngIf="loginbtn" routerLink="login" routerLinkActive="active">Вход</a>
+                </li>
+                <li class="nav-item">
+                    <button type="button" *ngIf="logoutbtn" class="btn btn-block" (click)="logout()">logout</button>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" *ngIf="loginbtn" routerLink="register" routerLinkActive="active">Регистрация</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" *ngIf="logoutbtn" routerLink="content" routerLinkActive="active">Dashboard</a>
+                </li>
+            </div>
         </ul>
         <form class="form-inline my-2 my-lg-0" *ngIf="user">
                 <img src="{{user.photoUrl}}"  width="60" height="60" class="user-profile">

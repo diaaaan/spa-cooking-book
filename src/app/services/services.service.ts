@@ -71,6 +71,7 @@ export class ServicesService {
   // }
 
   createPost(post: Post): Observable<ApiResponse> {
+    console.log(post);
     return this.http.post<ApiResponse>(this.baseUrl + '/insert.php', post);
   }
 
@@ -85,5 +86,9 @@ export class ServicesService {
   deletePost(id: number): Observable<ApiResponse> {
     return this.http.get<ApiResponse>(this.baseUrl + '/delete.php?id=' + id);
   }
+
+  // addUser(user: Users): Observable<ApiResponse> {
+  //   return this.http.post<ApiResponse>(this.baseUrl + '/insert.php', user);
+  // }
 
 }

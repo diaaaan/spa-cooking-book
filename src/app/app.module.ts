@@ -14,6 +14,7 @@ import { EditComponent } from './posts/edit/edit.component';
 import { InfoComponent } from './posts/info/info.component';
 import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider} from "angularx-social-login";
 import { UserComponent } from './profile/user/user.component';
+import { JoinusComponent } from './joinus/joinus.component';
 
 const google_oauth_client_id:string = "79994110272-ausqe9a5v3m7a0tt3vn1euntg2srckts.apps.googleusercontent.com";
 
@@ -34,7 +35,8 @@ let config = new AuthServiceConfig([
     AddComponent,
     EditComponent,
     InfoComponent,
-    UserComponent
+    UserComponent,
+    JoinusComponent
   ],
   imports: [
     BrowserModule,

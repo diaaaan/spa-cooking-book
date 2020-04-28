@@ -48,34 +48,17 @@
       </div>
   </div>
   <div class="col-sm-3"></div> -->
+  <app-joinus *ngIf="!user"></app-joinus>
 
-  <div *ngIf="!user">
-    <div class="first-div row">
-      <div class="col-6 main-text">
-        <div class="heading">
-          Рецепты вашего счастья
-        </div>
-        <div class="heading-text">
-          Ваши любимые рецепты из детства у вас на ладони.
-          <p>Принесите кусочки домашнего уюта в  цифровой мир!</p>
-          <div>
-            <button class="start-button" (click)="router.navigate(['/register']);">
-              Присоединиться!
-            </button>
-          </div>          
-        </div>        
-      </div>
-      <div class="col-4 main-image">
-        <img src="../../../assets/img/main_image.svg" alt="image" class="main_image">
-      </div>
-    </div>
-  </div>
-
+  
     <div class="second-div container">
   
       <div class="col-lg-6 top-of-day">
         <div class="top-of-day-header-text">Райское наслаждение</div>
         <p class="top-of-day-text">Самые вкусные рецепты по мнению наших пользователей</p>
+        <button type="button" (click)="onTest()" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+Test        </button>
+{{user.name}}
       </div>
       
       <div class="all-posts row">
@@ -93,10 +76,10 @@
         
           <div class="food-info-block">          
                     
-              <label class="food-name">{{post.recipeName}}</label>
-              <div class="food-time-block">
-                <img src="">
-                <label class="food-time-label">{{post.time}}</label>
+              <p class="food-name">{{post.recipeName}}</p>
+              <div class="food-time-block row">
+                <img src="../../assets/img/clock.svg" width="15" height="15" class="time-icon">
+                <p class="food-time-label">{{post.time}} мин.</p>
               </div>
 
            

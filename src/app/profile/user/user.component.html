@@ -1,1 +1,54 @@
-<p>user works!</p>
+<div class="row main">
+    <div class="col-3 user-block">
+        <div class="user-photo">
+            <img src="{{user.photoUrl}}"  width="150" height="150" class="user-profile-image">
+        </div>
+        <div class="user-name">
+            {{user.name}} 
+        </div>
+        <div class="user-rating">
+            Рейтинг 
+        </div>
+        <div class="user-liked">
+            Понравившихся рецептов: 
+        </div>
+        <div class="user-posts">
+            Выставлено рецептов: 
+        </div>
+        <div>
+            <button class="user-addpost-button" (click)="router.navigate(['/add-post']);">Поделиться рецептом</button>
+        </div>
+        <div>
+            <button class="signout-button" (click)="signOut();">Выйти</button>
+        </div>
+
+    </div>
+    <div class="col-9 feed-block">
+        <div class="col liked-block">
+            hello ow
+            hello ow
+            hello ow
+            hello ow
+            hello ow
+            hello ow
+            hello ow
+            hello ow
+            hello ow
+            hello ow
+            hello ow
+            hello ow
+            hello ow
+            hello ow
+            hello ow
+            hello ow
+            hello ow
+            hello ow
+            hello ow
+            hello ow
+            hello ow
+            hello ow
+            hello ow
+            hello ow
+        </div>
+    </div>
+</div>

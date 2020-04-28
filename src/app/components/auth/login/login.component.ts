@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
 
   user: any;
 
+
   angForm: FormGroup;
 
   constructor(private fb: FormBuilder,
@@ -37,16 +38,11 @@ export class LoginComponent implements OnInit {
           console.log(platfom  + "logged in user data is=", response);
              
           this.user = response;
+
           this.router.navigate(['/content']);
         }
       );
     }
-
-  signOut(): void {
-      this._socioAuthServ.signOut();
-  
-      console.log("User signed out");
-  }
 
   ngOnInit() { }
 

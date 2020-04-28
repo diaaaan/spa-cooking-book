@@ -1,0 +1,18 @@
+.user-container{
+    margin: 0 auto;
+    background-color: red;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: url(../../../assets/img/bg-auth.svg) no-repeat center center;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover; 
+}
+
+.this-form {    
+    margin: 15% 30% 18% 25%;
+    /* margin: 0 auto; */
+}

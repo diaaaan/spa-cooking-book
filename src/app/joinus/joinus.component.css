@@ -1,18 +1,6 @@
 /* @import url('https://fonts.googleapis.com/css?family=Neucha|Slabo+27px&display=swap'); */
 @import url('https://fonts.googleapis.com/css?family=Caveat|Nunito:700|Pacifico&display=swap');
-.main-bg{
-    margin: 0;
-    height: 100%;
-    /* background: url(../../../assets/img/bg_new.svg)no-repeat center center; */
-    /* background: url(../../../assets/img/1.png); */
-    /* background-size: 50%;
-    -webkit-filter: blur(0px); */
-}
 
-
-.modal.show {
-  display: block;
-}
 .first-div {
     padding: 0 auto;
     margin: 0 auto;
@@ -20,7 +8,7 @@
     height: 700px;
     /* background-color: #fad76e; */
     /* background-image: url(../../../assets/img/bg1.svg); */
-    background: url(../../../assets/img/bg_new.svg) no-repeat center center;
+    background: url(../../assets/img/bg_new.svg) no-repeat center center;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -57,54 +45,4 @@
   border-width: 0;
   font-size: 80%;
   color: white;
-}
-
-.food-image {
-  width: 220px;
-  height: 225px;
-}
-
-.top-of-day{ 
-  margin: 5% 0 3% 0;
-}
-
-.top-of-day-header-text { 
-  font-family: 'Nunito', sans-serif; 
-  font-size: 150%;
-}
-
-.all-posts {
-  margin: 3%;
-}
-
-.post-block {
-  width: 220px;
-  height: 290px;
-  margin: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px gray;
-  cursor: pointer;
-}
-
-.food-info-block {
-  width: 100%;
-
-}
-
-.food-time-block {
-  float: right;
-  padding-right: 28px;
-}
-
-
-.food-name {  
-  font-family: 'Nunito', sans-serif; 
-  font-size: 120%;
-  margin: 0;
-  padding-top: 2%;
-  padding-left: 5%;
-}
-
-.time-icon {
- margin: 5px ;
 }
